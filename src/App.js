@@ -6,8 +6,8 @@ function App() {
     <div className="App">
       <div className="container">
         <Search />
-        <footer>Coded by Lebogang Dingalo</footer>
       </div>
+      <footer>Coded by Lebogang Dingalo</footer>
     </div>
   );
 }

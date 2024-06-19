@@ -1,0 +1,27 @@
+.Search {
+  background-image: linear-gradient(to right, #071841, #00366f);
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 900px;
+  border-radius: 20px;
+}
+
+.Search form {
+  margin: 30px;
+  padding: 20px;
+}
+
+.Search .btn {
+  color: #f3ec78;
+  padding: 8px 20px;
+}
+
+.Search h1 {
+  background-color: #f3ec78;
+  background-image: linear-gradient(45deg, #f3ec78, #af4261);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}

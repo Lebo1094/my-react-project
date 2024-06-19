@@ -1,10 +1,12 @@
 import React from "react";
 import Weather from "./Weather";
 
+import "./Search.css";
+
 export default function Search() {
   return (
     <div className="Search">
-      <h1>Weather Search Engine</h1>
+      <h1>Weather Today</h1>
       <form>
         <div className="row">
           <div className="col-9">
@@ -20,7 +22,6 @@ export default function Search() {
           </div>
         </div>
       </form>
-      <br />
       <Weather />
     </div>
   );

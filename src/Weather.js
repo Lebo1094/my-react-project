@@ -1,9 +1,12 @@
 import React from "react";
 import { Rings } from "react-loader-spinner";
+import FormatDate from "./FormatDate";
+import WeatherIcon from "./WeatherIcon";
 
 import "./Weather.css";
 
 export default function Weather({ weatherData }) {
+  console.log(weatherData);
   if (!weatherData.city) {
     return (
       <div className="loading-spinner">
@@ -28,7 +31,7 @@ export default function Weather({ weatherData }) {
           <h5>
             {weatherData.city}
             <br />
-            Tuesday 20:30
+            <FormatDate date={weatherData.date} />
           </h5>
         </div>
         <div className="col-4">
@@ -41,7 +44,7 @@ export default function Weather({ weatherData }) {
           </h5>
         </div>
         <div className="col-4">
-          <img src={weatherData.iconUrl} alt="Weather Icon" />
+          <WeatherIcon icon={weatherData.description} code={weatherData.icon} />
         </div>
       </div>
       <br />

@@ -2,11 +2,12 @@ import React from "react";
 import { Rings } from "react-loader-spinner";
 import FormatDate from "./FormatDate";
 import WeatherIcon from "./WeatherIcon";
+import ConvertTempUnit from "./ConvertTempUnit";
+import ConvertFeelUnit from "./ConvertFeelUnit";
 
 import "./Weather.css";
 
 export default function Weather({ weatherData }) {
-  console.log(weatherData);
   if (!weatherData.city) {
     return (
       <div className="loading-spinner">
@@ -26,6 +27,7 @@ export default function Weather({ weatherData }) {
   return (
     <div className="Weather">
       <h2>Current Weather</h2>
+      <br />
       <div className="row">
         <div className="col-4">
           <h5>
@@ -36,7 +38,9 @@ export default function Weather({ weatherData }) {
         </div>
         <div className="col-4">
           <h5>
-            <strong>{Math.round(weatherData.temperature)}°C</strong>
+            <strong>
+              <ConvertTempUnit temp={weatherData.temperature} />
+            </strong>
             <br />
             <strong class="text-capitalize">
               {weatherData.description}
@@ -49,10 +53,12 @@ export default function Weather({ weatherData }) {
       </div>
       <br />
       <h2>Air Conditions</h2>
+      <br />
       <div className="row">
         <div className="col-4">
           <h5>
-            Feels like <br /> {Math.round(weatherData.feels_like)}℃
+            Feels like <br />
+            <ConvertFeelUnit tempfeel={weatherData.feels_like} />
           </h5>
         </div>
         <div className="col-4">

@@ -8,3 +8,8 @@
   -moz-text-fill-color: transparent;
   font-size: 15px;
 }
+
+.active-link {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -8,6 +8,7 @@ import "./Search.css";
 export default function Search() {
   const [city, setCity] = useState(null);
   const [data, setData] = useState({});
+  const [forecastData, setForecastData] = useState([]);
 
   function showTempData(response) {
     setData({
@@ -20,6 +21,9 @@ export default function Search() {
       feels_like: response.data.main.feels_like,
       icon: response.data.weather[0].icon,
     });
+
+    let apiUrl2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&appid=f5e814a04eddfab1740f07bf0328eee2&units=metric`;
+    axios.get(apiUrl2).then(getForecastData);
   }
 
   function updateCity(event) {
@@ -27,9 +31,14 @@ export default function Search() {
     setCity(event.target.value);
   }
 
+  function getForecastData(response) {
+    setForecastData(response.data.daily);
+  }
+
   function getWeatherData(event) {
     event.preventDefault();
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2718952144ed077c12e7c160fb6fc351&units=metric`;
+
     axios.get(apiUrl).then(showTempData);
   }
 
@@ -57,7 +66,9 @@ export default function Search() {
           <Weather weatherData={data} />
         </div>
         <div className="col-4">
-          <WeatherForecast code="01d" />
+          {forecastData.length > 0 && (
+            <WeatherForecast forecastData={forecastData} />
+          )}
         </div>
       </div>
     </div>

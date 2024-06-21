@@ -5,7 +5,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(3, 3, 3, 0.2); /* Adding shadow to create the raised effect */
   position: relative;
-  padding-left: 10px;
+  padding: 10px;
 }
 .raised-box::before {
   content: "";
@@ -46,7 +46,6 @@
 
 .WeatherForecast .day {
   font-size: 20px;
-  text-align: left;
   font-weight: 500;
 }
 

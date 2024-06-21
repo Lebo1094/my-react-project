@@ -2,8 +2,6 @@ import React from "react";
 import { Rings } from "react-loader-spinner";
 import FormatDate from "./FormatDate";
 import WeatherIcon from "./WeatherIcon";
-import ConvertTempUnit from "./ConvertTempUnit";
-import ConvertFeelUnit from "./ConvertFeelUnit";
 
 import "./Weather.css";
 
@@ -33,14 +31,12 @@ export default function Weather({ weatherData }) {
           <h5>
             {weatherData.city}
             <br />
-            <FormatDate date={weatherData.date} />
+            <FormatDate date={new Date(weatherData.date)} showTime={true} />
           </h5>
         </div>
         <div className="col-4">
           <h5>
-            <strong>
-              <ConvertTempUnit temp={weatherData.temperature} />
-            </strong>
+            <strong>{Math.round(weatherData.temperature)} °C</strong>
             <br />
             <strong class="text-capitalize">
               {weatherData.description}
@@ -58,7 +54,7 @@ export default function Weather({ weatherData }) {
         <div className="col-4">
           <h5>
             Feels like <br />
-            <ConvertFeelUnit tempfeel={weatherData.feels_like} />
+            {Math.round(weatherData.feels_like)}°
           </h5>
         </div>
         <div className="col-4">

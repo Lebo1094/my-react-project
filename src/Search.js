@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Weather from "./Weather";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 
 import "./Search.css";
@@ -51,7 +52,14 @@ export default function Search() {
           </div>
         </div>
       </form>
-      <Weather weatherData={data} />
+      <div className="row">
+        <div className="col-8">
+          <Weather weatherData={data} />
+        </div>
+        <div className="col-4">
+          <WeatherForecast code="01d" />
+        </div>
+      </div>
     </div>
   );
 }

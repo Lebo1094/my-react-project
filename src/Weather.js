@@ -48,7 +48,7 @@ export default function Weather({ weatherData }) {
           </h5>
         </div>
         <div className="col-4">
-          <WeatherIcon icon={weatherData.description} code={weatherData.icon} />
+          <WeatherIcon icon={weatherData.icon} />
         </div>
       </div>
       <br />
